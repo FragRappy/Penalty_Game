@@ -41,24 +41,29 @@ let randomCom = Math.floor(Math.random()*(positionBallon.length));
 
 //fonction pour la position du goal 
 function goalPosition(position){
-    let i=0;
-    while (i<3 && positionPlay != positionBallon[randomCom]){
-        randomCom = Math.floor(Math.random()*(positionBallon.length));
-        console.log(`le gardien a choisi : ${positionBallon[randomCom]}`);
-        i++;
-    }
+    console.log(`le gardien a choisi : ${positionBallon[randomCom]}`);
     if (positionPlay === positionBallon[randomCom]){
         stat.addGoalComputer();
         stat.updateQuantityComputer();
-        console.log(`Belle arret du goal biglou il a sauté en: ${positionBallon[randomCom]} `);
-    }
-    else {
-        stat.addGoalPlayer();
-        stat.updateQuantityPlayer();
-        console.log('Goooooaaaaaallllll !!!!');
+        console.log(`Belle arret du goal biglou du 1er coup, il a sauté en: ${positionBallon[randomCom]} `);
+    }else{
+        let randomCom2 = Math.floor(Math.random()*(positionBallon.length));
+        while(randomCom === randomCom2){
+            randomCom2 = Math.floor(Math.random()*(positionBallon.length));
+        }
+        console.log(`le gardien a choisi : ${positionBallon[randomCom2]}`);
+        if(positionPlay === positionBallon[randomCom2]){
+            stat.addGoalComputer();
+            stat.updateQuantityComputer();
+            console.log(`Belle arret du goal biglou à la 2ème tentative, il a sauté en: ${positionBallon[randomCom]} `);
+        }
+        else {
+            stat.addGoalPlayer();
+            stat.updateQuantityPlayer();
+            console.log('Goooooaaaaaallllll !!!!');
+        }
     }
 };
-
 
 //Recuperation valeur du bouton cliquer par le joueur
 document.querySelectorAll('.btn').forEach(function(button) {
