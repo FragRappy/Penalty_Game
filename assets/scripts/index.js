@@ -42,11 +42,12 @@ let randomCom = Math.floor(Math.random()*(positionBallon.length));
 //fonction pour la position du goal 
 function goalPosition(position){
     let i=0;
-    while (positionPlay != positionBallon[randomCom]){
-        randomCom = Math.floor(Math.random()*(positionBallon.length))
+    while (i<3 && positionPlay != positionBallon[randomCom]){
+        randomCom = Math.floor(Math.random()*(positionBallon.length));
+        console.log(`le gardien a choisi : ${positionBallon[randomCom]}`);
         i++;
     }
-    if (i<3){
+    if (positionPlay === positionBallon[randomCom]){
         stat.addGoalComputer();
         stat.updateQuantityComputer();
         console.log(`Belle arret du goal biglou il a sauté en: ${positionBallon[randomCom]} `);
