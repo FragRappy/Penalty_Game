@@ -1,0 +1,114 @@
+/*Général*/
+* {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+body{
+    
+    background-color: #3e3e42;
+}
+.projet-footer {
+    text-align: center;
+}
+
+/*couleur joueur et ordinateur*/
+.player {
+    color: green;
+}
+.computer {
+    color: red;
+}
+.player.computer {
+    font-size: 2rem;
+}
+
+/*rotation pour les différentes flèches des boutons de tirs*/ 
+.rotate45 {
+    transform: rotate(45deg);
+}
+.rotate90 {
+    transform: rotate(90deg);
+}
+.rotate135 {
+    transform: rotate(135deg);
+}
+.rotate180 {
+    transform: rotate(180deg);
+}
+.rotate225 {
+    transform: rotate(225deg);
+}
+.rotate270 {
+    transform: rotate(270deg);
+}
+.rotate315 {
+    transform: rotate(315deg);
+}
+
+/*Les containers*/
+.container-global {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.container1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+/*Gestion party*/
+.projet-party {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    
+}
+.projet-party li:last-child{
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+
+/* Gestion boutons */
+.btn {
+    font-size: 3rem;
+    color: #3e3e42;
+    border: 3px solid black;
+    padding: 1rem;
+    width: 6rem;
+    height: 6rem;
+}
+.projet-btn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .3rem;
+}
+/*Gestion de la cage*/
+
+
+/*Gestion du goal*/
+.position-goal{
+    position: absolute;
+    z-index: 2;
+    height: 200px;
+    top: calc(277px - 205px);
+    left: 50%;
+    transform: translate(-50%);
+}
+.position-ballon {
+    margin-top: 5rem;
+}
+
