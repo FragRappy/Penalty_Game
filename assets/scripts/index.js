@@ -2,13 +2,10 @@
 const positionBallon = [
     'upLeft',
     'left',
-    'downLeft',
     'up',
     'center',
-    'down',
     'upRight',
     'right',
-    'downRight'
 ];
 
 //Var stat partie
@@ -40,18 +37,23 @@ let randomPlay = Math.floor(Math.random()*(positionBallon.length));
 
 //Ordinateur
 let positionCom;
-let randomCom;
+let randomCom = Math.floor(Math.random()*(positionBallon.length));
 
 //fonction pour la position du goal 
 function goalPosition(position){
-    if (positionPlay === positionBallon[randomCom]){
-            stat.addGoalComputer();
-            stat.updateQuantityComputer();
+    let i=0;
+    while (positionPlay != positionBallon[randomCom]){
+        randomCom = Math.floor(Math.random()*(positionBallon.length))
+        i++;
+    }
+    if (i<3){
+        stat.addGoalComputer();
+        stat.updateQuantityComputer();
         console.log(`Belle arret du goal biglou il a sauté en: ${positionBallon[randomCom]} `);
     }
     else {
-            stat.addGoalPlayer();
-            stat.updateQuantityPlayer();
+        stat.addGoalPlayer();
+        stat.updateQuantityPlayer();
         console.log('Goooooaaaaaallllll !!!!');
     }
 };
@@ -61,10 +63,9 @@ function goalPosition(position){
 document.querySelectorAll('.btn').forEach(function(button) {
     button.addEventListener('click', function() {
         positionPlay = button.value;
-        randomCom = Math.floor(Math.random()*(positionBallon.length))
-        console.log(`le joueur choisi : ${positionPlay}`)
-        console.log(`le goal choisi : ${positionBallon[randomCom]} `)
-        // Ici on a accès à la valeur du bouton cliqué
+        randomCom = Math.floor(Math.random()*(positionBallon.length));
+        console.log(`le joueur choisi : ${positionPlay}`);
+        console.log(`le goal choisi : ${positionBallon[randomCom]} `);
         goalPosition(positionPlay);
     });
 });
